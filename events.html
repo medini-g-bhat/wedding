@@ -17,23 +17,12 @@
     }
 
     body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    
-    /* Ensure this path matches the actual file name and extension */
-    background-image: url('image/creative-flower-designs-in-black-fashion-page-border-background-word-template_41ceb5c2bf__1131_1600.jpg');
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    
-    color: var(--text-dark);
-    line-height: 1.8;
-    overflow-x: hidden;
-}
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--primary-bg); /* Clean, solid white background without pattern */
+      color: var(--text-dark);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
 
     /* ── FIXED AT THE VERY TOP (SCROLLS AWAY NATURALLY, MATCHING HOME) ── */
     .nav-container {
@@ -163,15 +152,15 @@
       gap: 25px;
     }
 
-    /* Make cards semi-transparent so the background shows through */
     .event-card {
-        background: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
-        backdrop-filter: blur(5px);
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 6px 24px rgba(0,0,0,0.1);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        transition: transform 0.3s ease;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(212,175,55,0.06);
+      border: 1px solid rgba(200, 151, 58, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .event-card:hover {
@@ -292,17 +281,9 @@
       header.hero p { font-size: 0.8rem; letter-spacing: 4px; }
       .page-content { padding: 60px 20px; } 
 
-      .nav-container { top: 30px; width: 95%; }
+      .nav-container { top: 15px; width: 95%; }
       .top-nav { padding: 10px 12px; }
       .top-nav a { font-size: 0.85rem; letter-spacing: 1px; padding: 5px 8px; } 
-    }
-     body {
-        /* 'contain' ensures the WHOLE image is visible, including corners */
-        background-size: contain; 
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-color: #ffffff; /* Set a fallback color for the edges */
     }
 
     @media (max-width: 480px) {
