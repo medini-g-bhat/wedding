@@ -9,10 +9,9 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
-            color-scheme: light;
             --primary-bg: #ffffff;
             --gold-light: #bf953f;  
-            --gold-mid: #c8973a;    
+            --gold-mid: #c8973a;   
             --gold-dark: #9c7e2d;   
             --text-dark: #4a4a4a;   
         }
@@ -24,19 +23,15 @@
         .top-nav a:hover { color: var(--gold-light); }
         .top-nav a:hover::after { width: 80%; }
 
-        /* ── HERO SECTION UPDATED FOR BACKGROUND IMAGE ── */
         header {
             position: relative;
-            min-height: 50vh; /* Increased height for better background coverage */
+            min-height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             padding: 110px 24px 60px 24px;
-            /* Placeholder Background - Text and structure remains same */
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), /* Dark overlay for text contrast */
-                url('image/images.jfif') no-repeat center center; /* REPLACE WITH YOUR IMAGE URL */
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('image/images.jfif') no-repeat center center;
             background-size: cover;
             overflow: hidden;
         }
@@ -52,214 +47,44 @@
         header::before { top: 0; }
         header .bottom-border { bottom: 0; }
 
-        .header-content {
-            z-index: 3; /* Ensures text stays above overlay */
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-        }
+        .header-content { z-index: 3; position: relative; width: 100%; max-width: 1000px; }
+        .fade-in-wrapper { animation: fadeInUp 2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
-        .fade-in-wrapper {
-            animation: fadeInUp 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+        header h1 { font-family: 'Cinzel', serif; font-size: 3.8rem; font-weight: 400; letter-spacing: 6px; color: white; line-height: 1.4; margin-bottom: 22px; text-transform: uppercase; display: inline-block; animation: floatingNames 4s ease-in-out infinite alternate; }
+        header h1 span { font-family: 'Playfair Display', serif; font-style: italic; text-transform: lowercase; letter-spacing: 0; padding: 0 8px; color: white; }
+        header p { font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 7px; text-transform: uppercase; color: #ffffff; font-weight: 500; animation: fadeInUp 2s cubic-bezier(0.16, 1, 0.3, 1); }
 
-        header h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3.8rem;
-            font-weight: 400;
-            letter-spacing: 6px;
-            /* color: var(--gold-light); Switched to light gold for contrast against dark overlay */
-            color: white;
-            line-height: 1.4;
-            margin-bottom: 22px;
-            text-transform: uppercase;
-            white-space: nowrap;
-            display: inline-block;
-            animation: floatingNames 4s ease-in-out infinite alternate;
-        }
+        section { padding: 80px 20px; max-width: 1000px; margin: auto; position: relative; z-index: 2; }
+        h2 { font-family: 'Cinzel', serif !important; font-size: 2rem !important; font-weight: 400 !important; text-align: center; letter-spacing: 6px !important; color: var(--gold-dark); text-transform: uppercase !important; }
 
-        header h1 span {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            text-transform: lowercase;
-            letter-spacing: 0;
-            padding: 0 8px;
-            /* color: var(--gold-mid); Adjust subtle contrast */
-            color: white;
-        }
+        .timeline-separator { display: flex; align-items: center; justify-content: center; margin: 25px 0 35px 0; }
+        .timeline-line { height: 1px; width: 160px; background: linear-gradient(90deg, transparent, var(--gold-mid), var(--gold-light)); }
+        .timeline-line.reverse { background: linear-gradient(90deg, var(--gold-light), var(--gold-mid), transparent); }
+        .timeline-dot { width: 5px; height: 5px; background-color: var(--gold-dark); border-radius: 50%; margin: 0 15px; }
 
-        header p {
-            font-family: 'Cinzel', serif;
-            font-size: 1rem;
-            letter-spacing: 7px;
-            text-transform: uppercase;
-            color: #ffffff; /* White for strong visibility on background image */
-            font-weight: 500;
-            animation: fadeInUp 2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        .content-frame-wrapper { max-width: 850px; margin: 0 auto; }
+        .matched-frame { border: 1px solid rgba(200, 151, 58, 0.18); border-radius: 20px; padding: 50px 55px; box-shadow: 0 12px 40px rgba(156, 126, 45, 0.04); position: relative; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('image/images.jfif') no-repeat center center; background-size: cover; overflow: hidden; }
+        .matched-frame p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: white; line-height: 2.1; text-align: center; }
 
-        /* ── THE REST OF THE STYLES (UNCHANGED EXCEPT TEXT VISIBILITY) ── */
-        section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: auto;
-            position: relative;
-            z-index: 2;
-        }
+        .clock-row { display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 4rem; font-weight: 600; color: white; line-height: 1; }
+        .diamond-divider { color: rgba(255, 255, 255, 0.6); margin: 0 20px; font-size: 0.8rem; vertical-align: middle; position: relative; top: -5px; }
+        .labels-row { display: flex; justify-content: center; margin-top: 15px; gap: 75px; color: white; font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
 
-        h2 {
-            font-family: 'Cinzel', serif !important;
-            font-size: 2rem !important;
-            font-weight: 400 !important;
-            text-align: center;
-            letter-spacing: 6px !important;
-            color: var(--gold-dark);
-            text-transform: uppercase !important;
-        }
+        footer { background: #ffffff; text-align: center; padding: 50px 20px; font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 4px; color: var(--gold-dark); border-top: 1px solid rgba(200, 151, 58, 0.15); position: relative; z-index: 2; }
+        footer span { color: var(--gold-mid); font-size: 1.1rem; }
 
-        .timeline-separator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 25px 0 35px 0;
-        }
-        .timeline-line {
-            height: 1px;
-            width: 160px;
-            background: linear-gradient(90deg, transparent, var(--gold-mid), var(--gold-light));
-        }
-        .timeline-line.reverse {
-            background: linear-gradient(90deg, var(--gold-light), var(--gold-mid), transparent);
-        }
-        .timeline-dot {
-            width: 5px;
-            height: 5px;
-            background-color: var(--gold-dark);
-            border-radius: 50%;
-            margin: 0 15px;
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes floatingNames { from { transform: translateY(0); } to { transform: translateY(-12px); } }
 
-        .content-frame-wrapper {
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        .matched-frame {
-            background: rgba(253, 250, 244, 0.65);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(200, 151, 58, 0.18);
-            border-radius: 20px;
-            padding: 50px 55px;
-            box-shadow: 0 12px 40px rgba(156, 126, 45, 0.04);
-            position: relative;
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), /* Dark overlay for text contrast */
-                url('image/images.jfif') no-repeat center center; /* REPLACE WITH YOUR IMAGE URL */
-            background-size: cover;
-            overflow: hidden;
-        }
-
-        .matched-frame::before, .matched-frame::after {
-            content: "◆";
-            position: absolute;
-            color: rgba(156, 126, 45, 0.3);
-            font-size: 0.7rem;
-        }
-        .matched-frame::before { top: 15px; left: 20px; }
-        .matched-frame::after { bottom: 15px; right: 20px; }
-
-        .matched-frame p {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1.4rem;
-            /* color: var(--text-dark); */
-            color: white;
-            line-height: 2.1;
-            text-align: center;
-        }
-
-        .clock-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cinzel', serif;
-            font-size: 4rem;
-            font-weight: 600;
-            /* color: var(--gold-dark); */
-            color: white;
-            line-height: 1;
-        }
-
-        .diamond-divider {
-            color: rgba(156, 126, 45, 0.25);
-            margin: 0 20px;
-            font-size: 0.8rem;
-            vertical-align: middle;
-            position: relative;
-            top: -5px;
-        }
-
-        .labels-row {
-            display: flex;
-            justify-content: center;
-            margin-top: 15px;
-            gap: 75px;
-            margin: 0 20px;
-        }
-
-        .labels-row div {
-            font-family: 'Cinzel', serif;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            /* color: var(--gold-dark); */
-            color: white;
-            font-weight: 600;
-            width: 50px;
-            text-align: center;
-        }
-
-        footer {
-            background: #ffffff;
-            text-align: center;
-            padding: 50px 20px;
-            font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
-            letter-spacing: 4px;
-            color: var(--gold-dark);
-            border-top: 1px solid rgba(200, 151, 58, 0.15);
-            position: relative;
-            z-index: 2;
-        }
-
-        footer span {
-            color: var(--gold-mid);
-            font-size: 1.1rem;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes floatingNames {
-            from { transform: translateY(0); }
-            to { transform: translateY(-12px); }
-        }
-
-        /* ── RESPONSIVE DESIGN (UPDATED FOR HIGHER HEADER) ── */
         @media (max-width: 768px) {
-            header {
-                min-height: 60vh;
-                padding: 100px 15px 40px 15px;
-            }
-            header h1 {
-                font-size: 2.2rem;
-                letter-spacing: 3px;
-            }
-            .clock-row { font-size: 2.6rem; }
-            .content-frame-wrapper { max-width: 90%; }
+            header { min-height: 40vh; padding: 80px 15px 30px 15px; }
+            header h1 { font-size: 1.8rem; letter-spacing: 2px; }
+            header p { font-size: 0.8rem; letter-spacing: 3px; }
+            .clock-row { font-size: 2rem; }
+            .labels-row { gap: 30px; }
+            .matched-frame { padding: 30px 20px; }
+            .matched-frame p { font-size: 1.1rem; }
+            .nav-container { top: 15px; }
         }
     </style>
 </head>
@@ -336,22 +161,15 @@
 
 <script>
     const targetWeddingDate = new Date("December 4, 2026 09:00:00").getTime();
-
     function runTimer() {
         const now = Date.now();
         const gap = targetWeddingDate - now;
-
-        if (gap < 0) {
-            document.getElementById("timer-box").style.display = "none";
-            return;
-        }
-
+        if (gap < 0) { document.getElementById("timer-box").style.display = "none"; return; }
         document.getElementById("days").innerText = Math.floor(gap / 86400000).toString().padStart(2, '0');
         document.getElementById("hours").innerText = Math.floor((gap % 86400000) / 3600000).toString().padStart(2, '0');
         document.getElementById("minutes").innerText = Math.floor((gap % 3600000) / 60000).toString().padStart(2, '0');
         document.getElementById("seconds").innerText = Math.floor((gap % 60000) / 1000).toString().padStart(2, '0');
     }
-
     setInterval(runTimer, 1000);
     runTimer();
 </script>
