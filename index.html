@@ -3,83 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
   <title>Sampreeth & Medini Wedding</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-    body, html { height: 100%; font-family: 'Josefin Sans', sans-serif; overflow-x: hidden; background-color: #1a1a1a; }
-    
-    .split-wrap { display: flex; width: 100%; height: 100%; }
 
-    .side { 
-      position: relative; height: 100%; 
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden; 
-    }
-    .side::before { 
-      content: ''; position: absolute; inset: 0; 
-      background: rgba(44, 34, 18, 0.5); 
-      z-index: 2; 
+    :root {
+      color-scheme: light;
+      --primary-bg: #ffffff;
+      --gold-light: #bf953f;  
+      --gold-mid: #c8973a;    
+      --gold-dark: #9c7e2d;   
+      --text-dark: #4a4a4a;   
     }
 
-    .left { 
-      width: 60%; 
+    @supports (color: color(display-p3 1 1 1)) {
+        :root {
+            --gold-light: color(display-p3 0.749 0.584 0.247);
+            --gold-mid: color(display-p3 0.784 0.592 0.227);
+            --gold-dark: color(display-p3 0.611 0.494 0.176);
+            --text-dark: color(display-p3 0.290 0.290 0.290);
+        }
+    }
+    header { background: linear-gradient(135deg, #f0f4f7 0%, #faf6f0 50%, #eff4f6 100%); }
+    body, html { height: 100%; font-family: 'Josefin Sans', sans-serif; overflow-x: hidden; background-color: #fdfbf7; }
+
+    .split-wrap { display: flex; width: 100%; height: 100%; color-interpolation-filters: sRGB; }
+
+    /* --- LEFT SIDE (PRESERVED) --- */
+    .left {
+      position: relative;
+      width: 50%;
+      height: 100%;
       background: url('image/WhatsApp Image 2026-02-21 at 10.56.32 PM.jpeg') no-repeat center center / cover;
-      transition: transform 15s ease;
+      overflow: hidden;
+      animation: imageReveal 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      will-change: transform;
     }
-    .left:hover { transform: scale(1.05); }
+    .left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(44, 34, 18, 0.45) 0%, rgba(0, 0, 0, 0.15) 50%, rgba(44, 34, 18, 0.55) 100%);
+      z-index: 2;
+    }
+    .left-content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 50px; z-index: 5; }
+    .left-name { font-family: 'Great Vibes', cursive; font-size: 4.5rem; color: #ffffff; line-height: 1.2; text-align: center; text-shadow: 2px 4px 15px rgba(0, 0, 0, 0.5); animation: fadeInDown 1.8s cubic-bezier(0.16, 1, 0.3, 1); letter-spacing: 1px; }
+    .left-name span { display: block; font-size: 2.5rem; font-family: 'Cormorant Garamond', serif; font-style: italic; margin: 5px 0; opacity: 0.9; color: #f7f3eb; }
+    .divider-line { width: 1px; height: 100%; background: #d4af37; flex-shrink: 0; z-index: 10; }
 
-    .right { 
-      width: 40%; 
-      background: url('image/images.jfif') no-repeat center center / cover; 
+    /* --- RIGHT SIDE (UPDATED) --- */
+    .right {
+      width: 50%; height: 100%;
+      background: url('image/images.jfif') no-repeat center center / cover;
+      position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;
     }
-
-    .content { 
-      position: relative; z-index: 5; text-align: center; color: #fff; padding: 60px; 
-      animation: fadeIn 2s ease;
-    }
-    
+    .right::before { content: ''; position: absolute; inset: 0; background: rgba(44, 34, 18, 0.5); z-index: 2; }
+    .right-content { position: relative; z-index: 5; text-align: center; color: #fff; padding: 60px; animation: fadeInUp 1.5s ease; }
     .title { font-family: 'Great Vibes', cursive; font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
     .subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; opacity: 0.95; margin-bottom: 40px; line-height: 1.8; }
-    
     .btn {
-      display: inline-block; padding: 15px 40px;
-      border: 1px solid #fff; color: #fff; text-decoration: none;
-      font-family: 'Josefin Sans', sans-serif;
-      font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase;
+      display: inline-block; padding: 15px 40px; border: 1px solid #fff; color: #fff; text-decoration: none;
+      font-family: 'Josefin Sans', sans-serif; font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase;
       transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .btn:hover { background: #fff; color: #7a664a; transform: translateY(-5px); }
 
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    /* ANIMATIONS & RESPONSIVE */
+    @keyframes imageReveal { from { transform: scale(1.08); opacity: 0.8; } to { transform: scale(1); opacity: 1; } }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 768px) {
+      body, html { overflow-y: auto; height: auto; }
       .split-wrap { flex-direction: column; height: auto; }
-      .side { width: 100%; height: 50vh; }
+      .left { width: 100%; height: 65vh; }
+      .left-name { font-size: 3.8rem; }
+      .left-name span { font-size: 2rem; }
+      .divider-line { width: 100%; height: 1px; }
+      .right { width: 100%; min-height: 45vh; }
       .title { font-size: 2.8rem; }
       .subtitle { font-size: 1.2rem; }
-      .content { padding: 30px; }
-      
-      /* THIS IS THE FIX: Shrinks button text and padding for mobile */
-      .btn { 
-        font-size: 0.65rem; 
-        padding: 12px 25px; 
-        letter-spacing: 2px; 
-      }
+      .right-content { padding: 30px; }
+      .btn { font-size: 0.65rem; padding: 12px 25px; letter-spacing: 2px; }
     }
   </style>
 </head>
 <body>
 
 <div class="split-wrap">
-  <div class="side left">
-    <div class="content">
-      <div class="title">Sampreeth & Medini</div>
+  <div class="left">
+    <div class="left-content">
+      <div class="left-name">Sampreeth <span>&amp;</span> Medini</div>
     </div>
   </div>
 
-  <div class="side right">
-    <div class="content">
+  <div class="divider-line"></div>
+
+  <div class="right">
+    <div class="right-content">
       <div class="title">You Are Invited!</div>
       <div class="subtitle">Join us as we celebrate our love and begin a beautiful new journey together.</div>
       <a href="main.html" class="btn">Join the Celebration</a>
