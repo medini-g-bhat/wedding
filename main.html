@@ -55,7 +55,7 @@
         header p { font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 7px; text-transform: uppercase; color: #ffffff; font-weight: 500; animation: fadeInUp 2s cubic-bezier(0.16, 1, 0.3, 1); }
 
         section { padding: 80px 20px; max-width: 1000px; margin: auto; position: relative; z-index: 2; }
-        h2 { font-family: 'Cinzel', serif !important; font-size: 2rem !important; font-weight: 400 !important; text-align: center; letter-spacing: 6px !important; color: var(--gold-dark); text-transform: uppercase !important; }
+        h2 { font-family: 'Cinzel', serif !important; font-size: 2rem !important; font-weight: 400 !important; text-align: center; letter-spacing: 6px !important; color: var(--gold-dark); text-transform: uppercase !important; white-space: nowrap; }
 
         .timeline-separator { display: flex; align-items: center; justify-content: center; margin: 25px 0 35px 0; }
         .timeline-line { height: 1px; width: 160px; background: linear-gradient(90deg, transparent, var(--gold-mid), var(--gold-light)); }
@@ -66,9 +66,9 @@
         .matched-frame { border: 1px solid rgba(200, 151, 58, 0.18); border-radius: 20px; padding: 50px 55px; box-shadow: 0 12px 40px rgba(156, 126, 45, 0.04); position: relative; background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('image/images.jfif') no-repeat center center; background-size: cover; overflow: hidden; }
         .matched-frame p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: white; line-height: 2.1; text-align: center; }
 
-        .clock-row { display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 4rem; font-weight: 600; color: white; line-height: 1; }
-        .diamond-divider { color: rgba(255, 255, 255, 0.6); margin: 0 20px; font-size: 0.8rem; vertical-align: middle; position: relative; top: -5px; }
-        .labels-row { display: flex; justify-content: center; margin-top: 15px; gap: 75px; color: white; font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+        .clock-row { display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; font-size: 4rem; font-weight: 600; color: white; line-height: 1; white-space: nowrap; }
+        .diamond-divider { color: rgba(255, 255, 255, 0.6); margin: 0 10px; font-size: 0.8rem; vertical-align: middle; position: relative; top: -5px; }
+        .labels-row { display: flex; justify-content: center; margin-top: 15px; gap: 20px; color: white; font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
 
         footer { background: #ffffff; text-align: center; padding: 50px 20px; font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 4px; color: var(--gold-dark); border-top: 1px solid rgba(200, 151, 58, 0.15); position: relative; z-index: 2; }
         footer span { color: var(--gold-mid); font-size: 1.1rem; }
@@ -78,13 +78,14 @@
 
         @media (max-width: 768px) {
             header { min-height: 40vh; padding: 80px 15px 30px 15px; }
-            header h1 { font-size: 1.8rem; letter-spacing: 2px; }
+            header h1 { font-size: 1.5rem; letter-spacing: 2px; white-space: nowrap; }
             header p { font-size: 0.8rem; letter-spacing: 3px; }
-            .clock-row { font-size: 2rem; }
-            .labels-row { gap: 30px; }
-            .matched-frame { padding: 30px 20px; }
+            .clock-row { font-size: 1.5rem; }
+            .labels-row { gap: 15px; font-size: 0.6rem; }
+            .matched-frame { padding: 30px 15px; }
             .matched-frame p { font-size: 1.1rem; }
             .nav-container { top: 15px; }
+            h2 { font-size: 1.5rem !important; }
         }
     </style>
 </head>
@@ -118,10 +119,7 @@
     <div class="content-frame-wrapper">
         <div class="matched-frame">
             <p>
-                What started as a lighthearted match by friends quickly turned into our destined path.
-                Through midnight conversations and stolen glances across the classroom, an undeniable spark was born.
-                Now, we choose to anchor this love in tradition, celebrating our bond through the sacred ritual of ‘Gandharva Vivaha’.
-                Join us as we write our next chapter.
+                What started as a lighthearted match by friends quickly turned into our destined path. Through midnight conversations and stolen glances across the classroom, an undeniable spark was born. Now, we choose to anchor this love in tradition, celebrating our bond through the sacred ritual of ‘Gandharva Vivaha’. Join us as we write our next chapter.
             </p>
         </div>
     </div>
@@ -137,19 +135,10 @@
     <div class="content-frame-wrapper" id="timer-box">
         <div class="matched-frame">
             <div class="clock-row">
-                <span id="days">00</span>
-                <span class="diamond-divider">◆</span>
-                <span id="hours">00</span>
-                <span class="diamond-divider">◆</span>
-                <span id="minutes">00</span>
-                <span class="diamond-divider">◆</span>
-                <span id="seconds">00</span>
+                <span id="days">00</span><span class="diamond-divider">◆</span><span id="hours">00</span><span class="diamond-divider">◆</span><span id="minutes">00</span><span class="diamond-divider">◆</span><span id="seconds">00</span>
             </div>
             <div class="labels-row">
-                <div>Days</div>
-                <div>Hrs</div>
-                <div>Min</div>
-                <div>Sec</div>
+                <div>Days</div><div>Hrs</div><div>Min</div><div>Sec</div>
             </div>
         </div>
     </div>
