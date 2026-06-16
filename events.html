@@ -296,6 +296,14 @@
       .top-nav { padding: 10px 12px; }
       .top-nav a { font-size: 0.85rem; letter-spacing: 1px; padding: 5px 8px; } 
     }
+     body {
+        /* 'contain' ensures the WHOLE image is visible, including corners */
+        background-size: contain; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        background-color: #ffffff; /* Set a fallback color for the edges */
+    }
 
     @media (max-width: 480px) {
       header.hero { height: 35vh; padding-top: 90px; } 
