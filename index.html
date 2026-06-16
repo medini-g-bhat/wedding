@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sampreeth & Medini Wedding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body, html { height: 100%; font-family: 'Josefin Sans', sans-serif; overflow-x: hidden; background-color: #1a1a1a; }
+    
+    .split-wrap { display: flex; width: 100%; height: 100%; }
+
+    .side { 
+      position: relative; height: 100%; 
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; 
+    }
+    .side::before { 
+      content: ''; position: absolute; inset: 0; 
+      background: rgba(44, 34, 18, 0.5); 
+      z-index: 2; 
+    }
+
+    .left { 
+      width: 60%; 
+      background: url('image/WhatsApp Image 2026-02-21 at 10.56.32 PM.jpeg') no-repeat center center / cover;
+      transition: transform 15s ease;
+    }
+    .left:hover { transform: scale(1.05); }
+
+    .right { 
+      width: 40%; 
+      background: url('image/images.jfif') no-repeat center center / cover; 
+    }
+
+    .content { 
+      position: relative; z-index: 5; text-align: center; color: #fff; padding: 60px; 
+      animation: fadeIn 2s ease;
+    }
+    
+    .title { font-family: 'Great Vibes', cursive; font-size: 3.5rem; margin-bottom: 20px; line-height: 1.1; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+    .subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; opacity: 0.95; margin-bottom: 40px; line-height: 1.8; }
+    
+    .btn {
+      display: inline-block; padding: 15px 40px;
+      border: 1px solid #fff; color: #fff; text-decoration: none;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn:hover { background: #fff; color: #7a664a; transform: translateY(-5px); }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    @media (max-width: 768px) {
+      .split-wrap { flex-direction: column; height: auto; }
+      .side { width: 100%; height: 50vh; }
+      .title { font-size: 2.8rem; }
+      .subtitle { font-size: 1.2rem; }
+      .content { padding: 30px; }
+      
+      /* THIS IS THE FIX: Shrinks button text and padding for mobile */
+      .btn { 
+        font-size: 0.65rem; 
+        padding: 12px 25px; 
+        letter-spacing: 2px; 
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="split-wrap">
+  <div class="side left">
+    <div class="content">
+      <div class="title">Sampreeth & Medini</div>
+    </div>
+  </div>
+
+  <div class="side right">
+    <div class="content">
+      <div class="title">You Are Invited!</div>
+      <div class="subtitle">Join us as we celebrate our love and begin a beautiful new journey together.</div>
+      <a href="main.html" class="btn">Join the Celebration</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
